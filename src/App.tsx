@@ -1,22 +1,20 @@
 // Libraries
-import React from 'react';
+import { useState } from 'react';
 // My modules
 import './App.css';
-import Letter, { AccuracyEnum } from './components/Letter';
+import { Word } from './components/Word';
+import { WordEntry } from './components/WordEntry';
 
 function App() {
+  const [wordGuess, setWordGuess] = useState('')
+
   return(
     <div>
-      <Letter accuracy={AccuracyEnum.correct}
-              position={0} value='R' />
-      <Letter accuracy={AccuracyEnum.doesNotExist}
-              position={1} value='E' />
-      <Letter accuracy={AccuracyEnum.wrongPosition}
-              position={2} value='A' />
-      <Letter accuracy={AccuracyEnum.wrongPosition}
-              position={3} value='C' />
-      <Letter accuracy={AccuracyEnum.correct}
-              position={4} value='T' />
+      <WordEntry
+        onGuessEntered={guess => setWordGuess(guess)}/>
+      <Word
+        isWordEvaluated={false}
+        guessWordValue={wordGuess} />
     </div>
   )
 }

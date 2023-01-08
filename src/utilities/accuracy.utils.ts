@@ -1,6 +1,6 @@
 export enum AccuracyEnum {
   correct,
   wrongPosition,
-  None,
+  none,
   doesNotExist
 }
